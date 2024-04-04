@@ -38,10 +38,7 @@ class Container extends React.PureComponent<Props> {
 
   private readonly sizeRelatedInfoAction$ = new Subject<SizeRelatedInfo>();
 
-  private readonly sizeRelatedInfo$ = merge<
-    SizeRelatedInfo,
-    BarActionScanResult
-  >(
+  private readonly sizeRelatedInfo$ = merge(
     this.sizeRelatedInfoAction$,
     this.barActions$.pipe(
       scanBarAction({
